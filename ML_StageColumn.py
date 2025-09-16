@@ -37,7 +37,7 @@ def detect_encoding(file_path):
 def clean_text(text):
     """Handle all encoding issues"""
     if not isinstance(text, str):
-        text = str(text, errors='replace')
+        text = text.decode('utf-8', errors='replace')
     return text.encode('latin1', 'ignore').decode('latin1', errors='replace').strip()
 
 def vectorize(txt, target, ngram, vectorizer=None, selector=None):
